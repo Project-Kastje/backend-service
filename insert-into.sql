@@ -1,2 +1,2 @@
 SELECT DATABASE kastje;
-INSERT INTO history (id,TIMESTAMP());
+INSERT INTO history (id,tijd);
