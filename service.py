@@ -13,8 +13,23 @@ dbconfig = {
 
 # --- static variables
 
-hat      = SenseHat()
+sense    = SenseHat()
 conn     = mariadb.connect(**dbconfig)
 cursor   = conn.cursor()
 
-# todo
+# --- main loop
+
+def iterate():
+    accel = sense.get_accelerometer_raw()
+    x = abs(accel['x'])
+    y = abs(accel['x'])
+    z = abs(accel['z'])
+    if x > 1 or y > 1 or z > 1:
+        print("INDRINGER")
+
+try:
+    while True:
+        iterate()
+
+except KeyboardInterrupt:
+    print("\n")
