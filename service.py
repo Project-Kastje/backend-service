@@ -24,7 +24,8 @@ def iterate():
     x = abs(accel['x'])
     y = abs(accel['x'])
     z = abs(accel['z'])
-    if x > 1 or y > 1 or z > 1:
+    #if x > 1 or y > 1 or z > 1:
+    if x > 0.15 or y > 0.15:
         print("INDRINGER")
 
 try:
