@@ -18,6 +18,13 @@ sense    = SenseHat()
 conn     = mariadb.connect(**dbconfig)
 cursor   = conn.cursor()
 
+# --- functies
+
+def alarm():
+    pygame.mixer.init()
+    pygame.mixer.music.load("8608.wav")
+    pygame.mixer.music.play()
+
 # --- main loop
 
 def iterate():
@@ -28,6 +35,7 @@ def iterate():
     #if x > 1 or y > 1 or z > 1:
     if x > 0.15 or y > 0.15:
         print("INDRINGER")
+        alarm()
 
 f = open("backend-service.log", "a")
 f.write("Start service")
