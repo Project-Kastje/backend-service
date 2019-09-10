@@ -23,7 +23,7 @@ cursor   = conn.cursor()
 
 def alarm():
     pygame.mixer.init()
-    pygame.mixer.music.load("8608.wav")
+    pygame.mixer.music.load("/etc/project-kastje/backend-service/8608.wav")
     pygame.mixer.music.play()
 
 # --- main loop
