@@ -1,6 +1,7 @@
 from sense_hat         import SenseHat
 from time              import sleep
 import os
+import pygame
 import mysql.connector as mariadb
 
 # --- configuratie
