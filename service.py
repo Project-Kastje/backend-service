@@ -26,6 +26,9 @@ def alarm():
     pygame.mixer.music.load("/etc/project-kastje/backend-service/8608.wav")
     pygame.mixer.music.play()
     os.system("sudo bash /etc/project-kastje/backend-service/push-wrapper.sh")
+    # voorkom spam en wacht totdat het geluid afgelopen is
+    while pygame.mixer.music.get_busy() == True:
+        sleep(1)
 
 # --- main loop
 
