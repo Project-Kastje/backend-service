@@ -25,7 +25,7 @@ def alarm():
     pygame.mixer.init()
     pygame.mixer.music.load("/etc/project-kastje/backend-service/8608.wav")
     pygame.mixer.music.play()
-    os.system("bash /etc/project-kastje/backend-service/push-wrapper.sh")
+    os.system("sudo bash /etc/project-kastje/backend-service/push-wrapper.sh")
 
 # --- main loop
 
