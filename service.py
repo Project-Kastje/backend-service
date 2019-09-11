@@ -18,10 +18,20 @@ dbconfig = {
 sense    = SenseHat()
 conn     = mariadb.connect(**dbconfig)
 cursor   = conn.cursor()
+cursor.autocommit = True
 
 # --- functies
 
+def log():
+    try:
+        cursor.execute('INSERT INTO history (id, tijd) VALUES (NULL, current_timestamp());')
+    except mariadb.connector.Error as err:
+        print("Error: {}".format(err))
+    else:
+        conn.commit();
+
 def alarm():
+    log()
     pygame.mixer.init()
     pygame.mixer.music.load("/etc/project-kastje/backend-service/8608.wav")
     pygame.mixer.music.play()
